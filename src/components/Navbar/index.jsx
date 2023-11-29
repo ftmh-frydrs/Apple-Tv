@@ -1,24 +1,23 @@
+import Menu from "./Menu";
 import Button from "../Button";
 import SearchBox from "../SearchBox";
 
 const Navbar = () => {
-  return (
-    <div className="flex">
-      <div>
-        <ul>
-          <li>Apple Tv+</li>
-          <li>MLS Season Pass</li>
-        </ul>
+    return (
+      <div className="grid bg-black w-[100%] grid-flow-col h-[50px] items-center">
+        <div></div>
+  
+        <div className="ml-auto items-center">
+          <Menu />
+        </div>
+  
+        <div className="ml-auto items-center">
+          <SearchBox />
+          <Button button="Sign In" />
+        </div>
       </div>
-
-      <div>
-        <Button button="Sign In" />
-      </div>
-      <div>
-        <SearchBox />
-      </div>
-    </div>
-  );
-};
+    );
+  };
+   
 
 export default Navbar;
