@@ -2,9 +2,9 @@ import Menu from "./Menu";
 import Button from "../Button";
 import SearchBox from "../SearchBox";
 
-const Navbar = () => {
+const Navbar = ({...rest}) => {
     return (
-      <div className="grid bg-black w-[100%] grid-flow-col h-[50px] items-center fixed z-50">
+      <div className="grid bg-black w-[100%] grid-flow-col h-[50px] items-center fixed z-50" {...rest}>
         <div></div>
   
         <div className="ml-auto items-center">

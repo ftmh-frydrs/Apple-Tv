@@ -2,9 +2,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-const Menu = () => {
+const Menu = ({...rest}) => {
     return (
-        <ul className="text-white flex justify-center gap-6 text-lg">
+        <ul {...rest} className="text-white flex justify-center gap-6 text-lg">
             <li>
                 <Link to="/AppleTv">Apple Tv+</Link>
             </li>

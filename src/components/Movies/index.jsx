@@ -1,16 +1,17 @@
-import React from 'react';
-import MovieList from '../MovieInfo';
+import React from "react";
+import MovieInfo from "../MovieInfo";
+import Divider from "../Divider";
 
 const Movies = () => {
   return (
     <>
-    <MovieList searchQuery="From" /><hr/>
-    <MovieList searchQuery="Game of Thrones" /><hr/>
-    <MovieList searchQuery="Friends" /><hr/>
-    <MovieList searchQuery="Stranger Things" /><hr/>
-    <MovieList searchQuery="Dark" /><hr/>
+      <MovieInfo moviesPerPage={1} title="Top Chart : Movies >" />
+      <Divider />
+      <MovieInfo moviesPerPage={2} title="Top Chart : Serial >" />
+      <Divider />
+      <MovieInfo moviesPerPage={3} title="Top Chart : Movies >" />
     </>
-  )
+  );
 };
 
 export default Movies;

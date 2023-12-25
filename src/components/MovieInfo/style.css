@@ -1,0 +1,12 @@
+.rounded-lg {
+    border-radius: 25px;
+}
+
+.swiper-pagination-bullet
+ {
+    display: none;
+}
+
+.swiper-scrollbar {
+    display: none;
+}

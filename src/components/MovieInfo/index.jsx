@@ -1,55 +1,68 @@
-// MovieList.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+// import 'swiper/css/scrollbar';
+import 'swiper/css/effect-cards';
+import axios from 'axios';
+import './style.css'
 
-const MovieList = ({ searchQuery }) => {
+const useMovieInfo = (moviesPerPage) => {
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(moviesPerPage);
+
+  const fetchMovies = async () => {
+    const url = `https://moviesapi.ir/api/v1/movies?page=${page}`;
+
+    try {
+      const response = await axios.get(url);
+
+      const moviesData = response.data.data;
+      setMovies((prevMovies) => [...prevMovies, ...moviesData]);
+      setPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get('http://www.omdbapi.com/', {
-          params: {
-            apikey: 'f11d479',
-            s: searchQuery,
-          },
-        });
-        setMovies(response.data.Search);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchMovies();
-  }, [searchQuery]);
+  }, []);
 
-  if (movies.length === 0) {
-    return <div>Loading...</div>;
-  }
+  const loadMoreMovies = () => {
+    fetchMovies();
+  };
+
+  return { movies, loadMoreMovies };
+};
+
+const MovieInfo = ({ moviesPerPage , title , ...rest}) => {
+  const { movies, loadMoreMovies } = useMovieInfo(moviesPerPage);
 
   return (
-    <Swiper className='mt-5'
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={5}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-    >
-      {movies.map((movie) => (
-        <SwiperSlide key={movie.imdbID}>
-          <div>
-            <img className='w-[100%] h-[250px] px-3' src={movie.Poster} alt={movie.Title} />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div {...rest}>
+      <p className='text-xl m-5'>{title}</p>
+      <Swiper
+        className='mt-5'
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        slidesPerView={5}
+        moviesPerPage ={moviesPerPage}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+      >
+        {movies.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            <div>
+              <img className='w-[90%] h-[150px] px-3 rounded-lg' src={movie.poster} alt={movie.title} />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 
-export default MovieList;
+export default MovieInfo;
