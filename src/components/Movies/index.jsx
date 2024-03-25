@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import MovieInfo from "../MovieInfo";
 import Divider from "../Divider";
 
