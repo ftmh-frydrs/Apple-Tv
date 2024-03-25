@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Icon from '../../Icon';
+import Icon from '../Icon';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -31,7 +31,7 @@ export default function ModalComponent({ open, children, onClose }) {
       <div style={MODAL_STYLES} className='w-[80%] h-[500px] rounded-md'>
         <button onClick={onClose} className="border-2 border-gray-200 rounded-full">
           <Icon size={28} color="gray" type="close"/>
-        </button>
+        </button>   
         {children}
       </div>
     </>,

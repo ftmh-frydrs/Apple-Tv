@@ -1,23 +1,25 @@
 import Menu from "./Menu";
 import SearchBox from "../SearchBox";
 import React, { useState } from "react";
-import ModalComponent from "../Login/ModalComponent";
+import Login from "../Login";
 
-const BUTTON_WRAPPER_STYLES = {
-  position: 'relative',
-  zIndex: 1
-}
+// import ModalComponent from "../Login/ModalComponent";
+
+// const BUTTON_WRAPPER_STYLES = {
+//   position: 'relative',
+//   zIndex: 1
+// }
 
 const Navbar = ({ ...rest }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsOpen(true);
+  // };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
 
   return (
     <div
@@ -32,13 +34,7 @@ const Navbar = ({ ...rest }) => {
 
       <div className="ml-auto items-center flex z-1">
         <SearchBox />
-        <div style={BUTTON_WRAPPER_STYLES} onClick={() => console.log('clicked')}>
-        <button className="text-white mx-2" onClick={() => setIsOpen(true)}>Sign In</button>
-
-        <ModalComponent open={isOpen} onClose={() => setIsOpen(false)}>
-         
-        </ModalComponent>
-      </div>
+       <Login />
       </div>
     </div>
   );
