@@ -28,7 +28,7 @@ export default function ModalComponent({ open, children, onClose }) {
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES} className='w-[80%] h-[500px] rounded-md'>
+      <div style={MODAL_STYLES} className='w-[80%]  md:w-[40%] h-[600px] rounded-[15px]'>
         <button onClick={onClose} className="border-2 border-gray-200 rounded-full">
           <Icon size={28} color="gray" type="close"/>
         </button>   

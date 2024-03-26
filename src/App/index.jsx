@@ -5,6 +5,7 @@ import Home from "../views/Home";
 import AppleTv from "../views/Nav/AppleTv";
 import MlsSeason from "../views/Nav/MlsSeason";
 import Login from "../views/Login";
+import Verify from "../views/Verify";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
          <Route path={paths.home} element={<Home />}/>
          <Route path={paths.apple_tv} element={<AppleTv />}/>
          <Route path={paths.mls} element={<MlsSeason />}/>
+         <Route path={paths.verify} element={<Verify />}/>
          {/* <Route path={paths.login} element={<Login/>} /> */}
         </Routes>
       </BrowserRouter>
