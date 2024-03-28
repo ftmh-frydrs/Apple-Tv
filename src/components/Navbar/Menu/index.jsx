@@ -18,4 +18,3 @@ const Menu = ({ ...rest }) => {
 };
 
 export default Menu;
- 
