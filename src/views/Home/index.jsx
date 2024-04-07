@@ -5,6 +5,7 @@ import ImageSwiperItem from "../../components/ImageSwiperItem";
 import picture_2 from "../../assets/img/1320x495sr.webp";
 import picture_3 from "../../assets/img/1320x495sr (1).webp"
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/idex";
 
 const Home = () => {
   return (
@@ -34,6 +35,9 @@ const Home = () => {
         <Link className="w-[150px] text-center mt-3">Learn more</Link>
         </div>
       </section>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };
