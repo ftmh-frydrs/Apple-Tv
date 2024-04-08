@@ -1,11 +1,13 @@
 import { GoX } from "react-icons/go";
 import { FaApple } from "react-icons/fa6";
-import { IoPerson } from "react-icons/io5";
+import { IoPerson, IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const iconComponents = {
   close: GoX,
   apple_logo: FaApple,
-  person : IoPerson,
+  person: IoPerson,
+  arrow_down: IoChevronDown,
+  arrow_up: IoChevronUp,
 };
 
 const Icon = ({ type, size, color }) => {
