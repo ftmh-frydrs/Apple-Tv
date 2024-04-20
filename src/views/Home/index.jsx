@@ -1,11 +1,13 @@
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Movies from "../../components/Movies";
+import MovieInfo from "../../components/MovieInfo";
 import ImageSwiperItem from "../../components/ImageSwiperItem";
+import Divider from "../../components/Divider";
 import picture_2 from "../../assets/img/1320x495sr.webp";
 import picture_3 from "../../assets/img/1320x495sr (1).webp"
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/idex";
+import Footer from "../../components/Footer/idex"; 
 
 const Home = () => {
   return (
@@ -14,9 +16,12 @@ const Home = () => {
       <Header />
       <Movies />
       <ImageSwiperItem />
+      <MovieInfo moviesPerPage={4} title="Top Chart : Movies >" />
+      <Divider />
+      <MovieInfo moviesPerPage={5} title="Top Chart : Movies >" />
       <Link>
         <img className="mx-auto mt-10 rounded-md" src={picture_2} />
-        <p classname="mx-3 text-lg">Create Apple Movies Apple TV+</p>
+        {/* <p classname="mx-3 text-lg">Create Apple Movies Apple TV+</p> */}
       </Link>
       <Link>
          <img className="mx-auto mt-10 rounded-md" src={picture_3}/>

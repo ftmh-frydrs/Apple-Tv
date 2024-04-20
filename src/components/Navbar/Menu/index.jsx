@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const Menu = ({ ...rest }) => {
   return (
-    <ul {...rest} className="text-white flex justify-center gap-6 text-lg">
+    <ul {...rest} className="text-white md:flex justify-center gap-6 text-lg hidden">
       <li>
         <Link to="/apple_tv">Apple Tv+</Link>
       </li>

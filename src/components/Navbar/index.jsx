@@ -6,7 +6,7 @@ import Login from "../Login";
 const Navbar = ({ ...rest }) => {
   return (
     <div
-      className="grid bg-black w-[100%] grid-flow-col h-[50px] items-center fixed z-10"
+      className="grid bg-black w-screen grid-flow-col h-[50px] items-center fixed z-10"
       {...rest}
     >
       <div></div>
@@ -15,7 +15,7 @@ const Navbar = ({ ...rest }) => {
         <Menu />
       </div>
 
-      <div className="ml-auto items-center flex z-1">
+      <div className="ml-auto items-center flex z-1 mr-5">
         <SearchBox placeholder="Search"/>
         <Login />
       </div>
