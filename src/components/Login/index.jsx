@@ -81,16 +81,17 @@ const Login = () => {
               See how your data is managed...
             </Link>
           </div>
-          {/* <div className=" text-white mx-auto flex justify-center mt-5 justify-content-center"> */}
-          <Link to="/" className="w-[50%] h-[45px] bg-[#287BFC] rounded-md">
-            Continue
-          </Link>
+          <div className=" text-white mx-auto flex justify-center mt-5 justify-content-center">
+            <button className="w-[50%] h-[45px] bg-[#287BFC] rounded-md">
+              Continue
+            </button>
+          </div>
           <div className="text-center font-sans">
-            <p className="text-2xl font-medium">Verification Code</p>
+            {/* <p className="text-2xl font-medium">Verification Code</p>
             <p className="text-sm text-gray-500">
               Enter ther Verification code sent to
             </p>
-            <p></p>
+            <p></p> */}
 
             {/* <div className="flex gap-3 mx-auto justify-center">
               <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
