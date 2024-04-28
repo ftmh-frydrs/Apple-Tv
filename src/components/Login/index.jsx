@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
 import ModalComponent from "../ModalComponent";
 import Icon from "../Icon";
 import SearchBox from "../SearchBox";
 import { Link } from "react-router-dom";
-import Button from "../Button";
+
+import { getFormattedTime, isLength, isEmailValid } from "./utils";
+import { STATES } from "./contants";
+
+import { useAuthentication } from "../../context/Auth/context";
 
 const BUTTON_WRAPPER_STYLES = {
   position: "relative",
@@ -17,12 +22,27 @@ const OTHER_CONTENT_STYLES = {
   padding: "10px",
 };
 
-export default function Login() {
+const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [otpCode, setOtpCode] = useState();
+  const [errorMessage, setErrorMessage] = useState();
+  const [formState, setFormState] = useState(STATES.NEEDS_EMAIL);
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [email, setEmail] = useState("");
+
+  // const [sendOtpCode, confirmOtpCode] = useAuthentication();   // there is an error
+
+  const timerRef = useRef();
+
+  const showEmail = formState === STATES.NEEDS_EMAIL;
+
   return (
     <>
       <div style={BUTTON_WRAPPER_STYLES} onClick={() => console.log("clicked")}>
-        <button className="text-white mx-2 bg-[#287BFC] w-[80px] h-[30px] rounded-md" onClick={() => setIsOpen(true)}>
+        <button
+          className="text-white mx-2 bg-[#287BFC] w-[80px] h-[30px] rounded-md"
+          onClick={() => setIsOpen(true)}
+        >
           Sign In
         </button>
 
@@ -30,6 +50,7 @@ export default function Login() {
           <div className="mx-auto flex justify-center">
             <Icon size={60} color="gray" type="apple_logo" />
           </div>
+
           <div className="mx-auto text-center mt-5">
             <p className="text-3xl font-bold font-sans">Sign In or Sign Up</p>
             <p className="text-gray-500 mt-2 text-2xl font-sans">
@@ -60,11 +81,31 @@ export default function Login() {
               See how your data is managed...
             </Link>
           </div>
-          <div className=" text-white mx-auto flex justify-center mt-5 justify-content-center">
-            <button className="w-[50%] h-[45px] bg-[#287BFC] rounded-md">Continue</button>
+          {/* <div className=" text-white mx-auto flex justify-center mt-5 justify-content-center"> */}
+          <Link to="/" className="w-[50%] h-[45px] bg-[#287BFC] rounded-md">
+            Continue
+          </Link>
+          <div className="text-center font-sans">
+            <p className="text-2xl font-medium">Verification Code</p>
+            <p className="text-sm text-gray-500">
+              Enter ther Verification code sent to
+            </p>
+            <p></p>
+
+            {/* <div className="flex gap-3 mx-auto justify-center">
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+              <input max={1} className="w-[40px] h-[40px] border border-solid border-gray-400"/>
+            </div> */}
           </div>
+          {/* </div> */}
         </ModalComponent>
-      </div>   
+      </div>
     </>
   );
-}          
+};
+
+export default Login;
